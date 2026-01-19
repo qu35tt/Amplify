@@ -1,0 +1,6 @@
+@Amplify_backend_HostAddress = http://localhost:5011
+
+GET {{Amplify_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
