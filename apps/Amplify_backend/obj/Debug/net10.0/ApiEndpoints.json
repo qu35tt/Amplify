@@ -24,5 +24,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Amplify_backend.Controllers.UserController",
+    "Method": "LoginUser",
+    "RelativePath": "user/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "Amplify_backend.Model.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

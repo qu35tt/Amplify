@@ -5,10 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,26 +26,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-21T11:04:26.365Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
               "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Controllers\\UserController.cs",
               "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCQAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAwCwAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T11:39:36.877Z",
               "EditorCaption": ""

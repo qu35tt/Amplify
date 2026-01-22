@@ -25,6 +25,38 @@
         }
       }
     },
+    "/user/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/user/create": {
       "post": {
         "tags": [
@@ -77,7 +109,7 @@
           "username": {
             "type": "string"
           },
-          "hashedPassword": {
+          "password": {
             "type": "string"
           }
         }

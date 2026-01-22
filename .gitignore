@@ -137,3 +137,66 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+## Visual Studio & .NET Core (Applies to all subfolders automatically)
+.vs/
+.vscode/
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bld/
+[Ll]og/
+[Ll]ogs/
+
+## Tooling
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.launchSettings.json
+
+## Web & Front-end
+node_modules/
+wwwroot/lib/
+npm-debug.log
+yarn-error.log
+
+## Tests
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+TestResult.xml
+
+## Azure & Publish
+publish/
+*.azurePubxml
+*.pubxml
+*.publishsettings
+
+## Sensitive Configuration (Recursive)
+# This finds appsettings.Development.json inside apps/Amplify_backend/ too
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+.env
+
+## Databases
+*.mdf
+*.ldf
+*.db
+
+## ----------------------------------------------------
+## SPECIFIC RULES FOR: apps/Amplify_backend
+## ----------------------------------------------------
+
+# If you have a specific SQLite DB inside your backend folder
+apps/Amplify_backend/*.db
+
+# If you have specific logs generated in that folder
+apps/Amplify_backend/logs/
+
+# If you want to ignore user uploads in that specific folder
+apps/Amplify_backend/wwwroot/uploads/
