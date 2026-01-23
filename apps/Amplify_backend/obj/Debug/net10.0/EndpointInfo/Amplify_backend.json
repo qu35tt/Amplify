@@ -1,17 +1,9 @@
 {
-  "openapi": "3.1.1",
+  "openapi": "3.0.4",
   "info": {
-    "title": "Amplify_backend | v1",
-    "version": "1.0.0"
+    "title": "Amplify_backend",
+    "version": "1.0"
   },
-  "servers": [
-    {
-      "url": "https://localhost:7045"
-    },
-    {
-      "url": "http://localhost:5011"
-    }
-  ],
   "paths": {
     "/user": {
       "get": {
@@ -47,8 +39,7 @@
                 "$ref": "#/components/schemas/User"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -79,9 +70,30 @@
                 "$ref": "#/components/schemas/User"
               }
             }
-          },
-          "required": true
+          }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -96,23 +108,23 @@
         "type": "object",
         "properties": {
           "id": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "email": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "username": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "password": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
       }
     }
   },

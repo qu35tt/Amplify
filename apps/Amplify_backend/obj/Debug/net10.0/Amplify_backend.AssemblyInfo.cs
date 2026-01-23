@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Amplify_backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+71c67b91704cc6a268eac0dfd4ec66f330332aed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56f7ab268ebc0b9a0d64e32811d0e2ad95e3b551")]
 [assembly: System.Reflection.AssemblyProductAttribute("Amplify_backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Amplify_backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

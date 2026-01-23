@@ -1,8 +1,11 @@
 ﻿using Amplify_backend.Data;
 using Amplify_backend.Model;
+using Amplify_backend.Services;
 using Amplify_backend.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
 
 namespace Amplify_backend.Controllers
 {
@@ -11,9 +14,12 @@ namespace Amplify_backend.Controllers
     public class UserController: ControllerBase
     {
         private readonly AppDbContext db;
+        private readonly JwtService jwt;
+        
 
-        public UserController (AppDbContext context)
+        public UserController (AppDbContext context, JwtService jwt)
         {
+            this.jwt = jwt;
             db = context;
         }
 
@@ -29,15 +35,33 @@ namespace Amplify_backend.Controllers
         {
             try
             {
-                User user = new User()
+                User userReq = new User()
                 {
                     email = req.email,
                     password = req.password
                 };
 
-                var result = await db.Users.FirstOrDefaultAsync(u => u.email == user.email);
+                var user = await db.Users.FirstOrDefaultAsync(u => u.email == userReq.email);
 
-                return StatusCode(200, result?.id);
+                bool isPasswordValid = PasswordHasher.VerifyPassword(userReq.password, user?.password ?? "");
+
+                if (!isPasswordValid)
+                    return StatusCode(401, "Email or username is incorrect!");
+
+                var token = await jwt.GenerateToken(user!.id);
+
+                var response = new
+                {
+                    token = token,
+                    user = new
+                    {
+                        id = user.id,
+                        email = user.email,
+                        username = user.username
+                    }
+                };
+
+                return StatusCode(200, response);
             }
             catch
             {
@@ -71,13 +95,51 @@ namespace Amplify_backend.Controllers
                 if (!result.IsKeySet)
                     return StatusCode(500, "User created unsuccesfully");
 
-                Console.Write(result);
+                var user = result.Entity;
 
-                return StatusCode(201, "User created successfully.");
+                var token = await jwt.GenerateToken(user.id);
+
+                var response = new
+                {
+                    token = token,
+                    user = new
+                    {
+                        id = user.id,
+                        email = user.email,
+                        username = user.username
+                    }
+                };
+
+                return StatusCode(201, response);
             }
             catch
             {
                 return StatusCode(500, "An error occurred while creating the user.");
+            }
+        }
+
+        [Authorize]
+        [HttpGet("{id}")]
+        public async Task<ObjectResult> GetUserData()
+        {
+            try
+            {
+                string id = HttpContext.Request.RouteValues["id"]?.ToString() ?? "";
+
+                if (id == "")
+                    return StatusCode(500, "Id is not typed");
+
+                var result = await db.Users.FirstOrDefaultAsync(u => u.id.ToString() == id);
+
+
+                if (result?.id < 1)
+                    return StatusCode(404, "User not found");
+
+                return StatusCode(200, result);
+            }
+            catch
+            {
+                return StatusCode(500, "An error occured while finding a person");
             }
         }
     }

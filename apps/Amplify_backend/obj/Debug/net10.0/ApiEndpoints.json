@@ -11,6 +11,22 @@
   },
   {
     "ContainingType": "Amplify_backend.Controllers.UserController",
+    "Method": "GetUserData",
+    "RelativePath": "user/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Amplify_backend.Controllers.UserController",
     "Method": "CreateUser",
     "RelativePath": "user/create",
     "HttpMethod": "POST",
