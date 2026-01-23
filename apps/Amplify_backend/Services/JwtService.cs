@@ -16,7 +16,7 @@ namespace Amplify_backend.Services
             _configuration = configuration;
         }
 
-        public async Task<string> GenerateToken(int userId)
+        public async Task<string> GenerateToken(Guid userId)
         {
             var issuer = _configuration["JwtConfig:Issuer"];
             var audience = _configuration["JwtConfig:Audience"];

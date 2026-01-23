@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\model\\likedsongs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:model\\likedsongs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,66 +30,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-01-22T13:28:46.286Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "JwtService.cs",
-              "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Services\\JwtService.cs",
-              "RelativeDocumentMoniker": "Services\\JwtService.cs",
-              "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Services\\JwtService.cs",
-              "RelativeToolTip": "Services\\JwtService.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAADwvyoAAAAfAAAAAAAAAA==",
+              "Title": "LikedSongs.cs",
+              "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Model\\LikedSongs.cs",
+              "RelativeDocumentMoniker": "Model\\LikedSongs.cs",
+              "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Model\\LikedSongs.cs",
+              "RelativeToolTip": "Model\\LikedSongs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-22T10:26:24.973Z",
+              "WhenOpened": "2026-01-23T09:39:22.711Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-22T10:08:30.446Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Model\\User.cs",
-              "RelativeDocumentMoniker": "Model\\User.cs",
-              "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Model\\User.cs",
-              "RelativeToolTip": "Model\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-22T09:15:53.239Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAA3wDgAAAAZAAAAAAAAAA==",
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAwwCsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T11:39:36.877Z",
+              "WhenOpened": "2026-01-23T09:33:35.639Z",
               "EditorCaption": ""
             }
           ]

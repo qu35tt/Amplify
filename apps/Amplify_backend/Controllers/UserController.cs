@@ -53,11 +53,12 @@ namespace Amplify_backend.Controllers
                 var response = new
                 {
                     token = token,
-                    user = new
+                    user = new User
                     {
                         id = user.id,
                         email = user.email,
-                        username = user.username
+                        display_name = user.display_name,
+                        AvatarUrl = user.AvatarUrl,
                     }
                 };
 
@@ -86,8 +87,10 @@ namespace Amplify_backend.Controllers
                 var result = await db.Users.AddAsync(new User
                 {
                     email = req.email,
-                    username = req.username,
-                    password = hashedPassword
+                    display_name = req.display_name,
+                    password = hashedPassword,
+                    AvatarUrl = req.AvatarUrl,
+                    isAdmin = false,
                 });
 
                 await db.SaveChangesAsync();
@@ -102,11 +105,12 @@ namespace Amplify_backend.Controllers
                 var response = new
                 {
                     token = token,
-                    user = new
+                    user = new User
                     {
                         id = user.id,
                         email = user.email,
-                        username = user.username
+                        display_name = user.display_name,
+                        AvatarUrl = user.AvatarUrl,
                     }
                 };
 
@@ -132,7 +136,7 @@ namespace Amplify_backend.Controllers
                 var result = await db.Users.FirstOrDefaultAsync(u => u.id.ToString() == id);
 
 
-                if (result?.id < 1)
+                if (result?.id == Guid.Empty)
                     return StatusCode(404, "User not found");
 
                 return StatusCode(200, result);

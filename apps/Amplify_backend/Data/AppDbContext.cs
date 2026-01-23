@@ -6,6 +6,17 @@ namespace Amplify_backend.Data
     public class AppDbContext: DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Artists> Artists { get; set; }
+
+        public DbSet<Albums> Albums { get; set; }
+
+        public DbSet<Songs> Songs { get; set; }
+
+        public DbSet<Playlists> Playlists { get; set; }
+
+        public DbSet<PlaylistSongs> PlaylistSongs { get; set; }
+
+        public DbSet<LikedSongs> LikedSongs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -18,6 +29,23 @@ namespace Amplify_backend.Data
             var connectionString = configuration.GetConnectionString("Local");
 
             optionsBuilder.UseNpgsql(connectionString);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<LikedSongs>(entity =>
+            {
+                entity.ToTable("liked_songs");
+                entity.HasKey(e => new { e.UserId, e.SongId });
+            });
+
+            modelBuilder.Entity<PlaylistSongs>(entity =>
+            {
+                entity.ToTable("playlist_songs");
+                entity.HasKey(e => new { e.PlaylistId, e.SongId });
+            });
         }
     }
 }

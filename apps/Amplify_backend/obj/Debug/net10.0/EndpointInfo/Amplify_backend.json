@@ -105,23 +105,44 @@
   "components": {
     "schemas": {
       "User": {
+        "required": [
+          "email",
+          "password"
+        ],
         "type": "object",
         "properties": {
           "id": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "email": {
+            "maxLength": 254,
+            "minLength": 1,
+            "type": "string"
+          },
+          "display_name": {
+            "maxLength": 150,
             "type": "string",
             "nullable": true
           },
-          "username": {
+          "avatarUrl": {
             "type": "string",
             "nullable": true
+          },
+          "isAdmin": {
+            "type": "boolean"
           },
           "password": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "createdAt": {
             "type": "string",
-            "nullable": true
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
