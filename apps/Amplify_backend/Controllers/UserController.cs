@@ -3,6 +3,7 @@ using Amplify_backend.Model;
 using Amplify_backend.Services;
 using Amplify_backend.Utils;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
@@ -21,13 +22,6 @@ namespace Amplify_backend.Controllers
         {
             this.jwt = jwt;
             db = context;
-        }
-
-        [HttpGet]
-        public IActionResult GetUsers()
-        {
-            var users = db.Users.ToList();
-            return Ok(users);
         }
 
         [HttpPost("login")]
@@ -119,6 +113,41 @@ namespace Amplify_backend.Controllers
             catch
             {
                 return StatusCode(500, "An error occurred while creating the user.");
+            }
+        }
+
+        [Authorize]
+        [HttpPut("update/{id}")]
+        public async Task<ObjectResult> UpdateUserData([FromBody] UserUpdateData req)
+        {
+            try
+            {
+                string id = HttpContext.Request.RouteValues["id"]?.ToString() ?? "";
+
+                if (id == "")
+                    return StatusCode(500, "Id is not typed");
+
+                var user = await db.Users.FirstOrDefaultAsync(u => u.id + "" == id);
+
+                if (user == null)
+                    return StatusCode(404, "User was not found");
+
+                user.display_name = req.display_name ?? user.display_name;
+                user.AvatarUrl = req.AvatarUrl ?? user.AvatarUrl;
+                user.email = req.email ?? user.email;
+                user.updatedAt = DateTime.UtcNow;
+
+                if (!string.IsNullOrWhiteSpace(req.password))
+                    user.password = PasswordHasher.HashPassword(req.password);
+                
+
+                await db.SaveChangesAsync();
+
+                return StatusCode(200, "User Updated Succesfully");
+            }
+            catch
+            {
+                return StatusCode(500, "Server error");
             }
         }
 

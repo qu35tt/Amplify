@@ -1,16 +1,6 @@
 [
   {
     "ContainingType": "Amplify_backend.Controllers.UserController",
-    "Method": "GetUsers",
-    "RelativePath": "user",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Amplify_backend.Controllers.UserController",
     "Method": "GetUserData",
     "RelativePath": "user/{id}",
     "HttpMethod": "GET",
@@ -52,6 +42,27 @@
       {
         "Name": "req",
         "Type": "Amplify_backend.Model.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Amplify_backend.Controllers.UserController",
+    "Method": "UpdateUserData",
+    "RelativePath": "user/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "UserUpdateData",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
         "IsRequired": true
       }
     ],
