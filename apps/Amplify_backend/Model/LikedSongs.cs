@@ -2,15 +2,20 @@
 
 namespace Amplify_backend.Model
 {
+    [Table("likedSongs")]
     public class LikedSongs
     {
-        public Guid UserId { get; set; }
-        public Guid SongId { get; set; }
+        public Guid userId { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public Guid songId { get; set; }
 
-        public User User { get; set; }
-        public Songs Song { get; set; }
+        public DateTime createdAt { get; set; } = DateTime.UtcNow;
+
+        [ForeignKey("userId")]
+        public Users? user { get; set; }
+
+        [ForeignKey("songId")]
+        public Songs? song { get; set; }
     }
 }
 

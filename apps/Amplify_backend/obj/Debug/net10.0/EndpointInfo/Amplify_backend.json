@@ -5,26 +5,26 @@
     "version": "1.0"
   },
   "paths": {
-    "/user/login": {
+    "/auth/login": {
       "post": {
         "tags": [
-          "User"
+          "Auth"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/Users"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/Users"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/Users"
               }
             }
           }
@@ -36,26 +36,26 @@
         }
       }
     },
-    "/user/create": {
+    "/auth/create": {
       "post": {
         "tags": [
-          "User"
+          "Auth"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/Users"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/Users"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/Users"
               }
             }
           }
@@ -67,10 +67,10 @@
         }
       }
     },
-    "/user/update/{id}": {
+    "/auth/update/{id}": {
       "put": {
         "tags": [
-          "User"
+          "Auth"
         ],
         "parameters": [
           {
@@ -108,8 +108,176 @@
         }
       }
     },
-    "/user/{id}": {
+    "/auth/{id}": {
       "get": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/library/artists": {
+      "get": {
+        "tags": [
+          "Library"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/library/artists/{id}": {
+      "get": {
+        "tags": [
+          "Library"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/library/albums/{id}": {
+      "get": {
+        "tags": [
+          "Library"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/songs": {
+      "get": {
+        "tags": [
+          "Songs"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Songs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/songs/{id}": {
+      "get": {
+        "tags": [
+          "Songs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/songs/{id}/stream": {
+      "get": {
+        "tags": [
+          "Songs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/likes": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/likes/{id}": {
+      "post": {
         "tags": [
           "User"
         ],
@@ -133,10 +301,9 @@
   },
   "components": {
     "schemas": {
-      "User": {
+      "Albums": {
         "required": [
-          "email",
-          "password"
+          "title"
         ],
         "type": "object",
         "properties": {
@@ -144,37 +311,264 @@
             "type": "string",
             "format": "uuid"
           },
-          "email": {
-            "maxLength": 254,
+          "artistId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "maxLength": 80,
             "minLength": 1,
             "type": "string"
           },
-          "display_name": {
-            "maxLength": 150,
+          "coverArtUrl": {
             "type": "string",
             "nullable": true
           },
-          "avatarUrl": {
+          "releaseDate": {
             "type": "string",
+            "format": "date",
             "nullable": true
           },
-          "isAdmin": {
-            "type": "boolean"
-          },
-          "password": {
-            "minLength": 1,
-            "type": "string"
+          "genre": {
+            "type": "string",
+            "nullable": true
           },
           "createdAt": {
             "type": "string",
             "format": "date-time"
           },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time"
+          "artist": {
+            "$ref": "#/components/schemas/Artists"
+          },
+          "songs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Songs"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
+      },
+      "Artists": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "albums": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Albums"
+            },
+            "nullable": true
+          },
+          "songs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Songs"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LikedSongs": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "songId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "user": {
+            "$ref": "#/components/schemas/Users"
+          },
+          "song": {
+            "$ref": "#/components/schemas/Songs"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlaylistSongs": {
+        "type": "object",
+        "properties": {
+          "playlistId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "songId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "position": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "addedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "playlist": {
+            "$ref": "#/components/schemas/Playlists"
+          },
+          "song": {
+            "$ref": "#/components/schemas/Songs"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Playlists": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "coverImageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPublic": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "user": {
+            "$ref": "#/components/schemas/Users"
+          },
+          "songs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlaylistSongs"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Songs": {
+        "required": [
+          "fileExtension",
+          "filePath",
+          "storageType",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "artistId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "albumId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "durationSeconds": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trackNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "storageType": {
+            "$ref": "#/components/schemas/StorageType"
+          },
+          "filePath": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "fileExtension": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "bitrate": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "artist": {
+            "$ref": "#/components/schemas/Artists"
+          },
+          "album": {
+            "$ref": "#/components/schemas/Albums"
+          },
+          "playlists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlaylistSongs"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StorageType": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "UserUpdateData": {
         "type": "object",
@@ -202,10 +596,76 @@
           }
         },
         "additionalProperties": false
+      },
+      "Users": {
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "email": {
+            "maxLength": 254,
+            "minLength": 1,
+            "type": "string"
+          },
+          "displayName": {
+            "maxLength": 150,
+            "type": "string",
+            "nullable": true
+          },
+          "avatarUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "isAdmin": {
+            "type": "boolean"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "playlists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Playlists"
+            },
+            "nullable": true
+          },
+          "likedSongs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LikedSongs"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       }
     }
   },
   "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "Library"
+    },
+    {
+      "name": "Songs"
+    },
     {
       "name": "User"
     }

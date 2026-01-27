@@ -5,7 +5,7 @@ namespace Amplify_backend.Data
 {
     public class AppDbContext: DbContext
     {
-        public DbSet<User> Users { get; set; }
+        public DbSet<Users> Users { get; set; }
         public DbSet<Artists> Artists { get; set; }
 
         public DbSet<Albums> Albums { get; set; }
@@ -38,13 +38,13 @@ namespace Amplify_backend.Data
             modelBuilder.Entity<LikedSongs>(entity =>
             {
                 entity.ToTable("liked_songs");
-                entity.HasKey(e => new { e.UserId, e.SongId });
+                entity.HasKey(e => new { e.userId, e.songId });
             });
 
             modelBuilder.Entity<PlaylistSongs>(entity =>
             {
                 entity.ToTable("playlist_songs");
-                entity.HasKey(e => new { e.PlaylistId, e.SongId });
+                entity.HasKey(e => new { e.playlistId, e.songId });
             });
         }
     }

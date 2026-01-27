@@ -3,6 +3,7 @@ using System;
 using Amplify_backend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Amplify_backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260127074643_27_01_26")]
+    partial class _27_01_26
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,12 +91,15 @@ namespace Amplify_backend.Migrations
                     b.Property<Guid>("songId")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid?>("SongId")
+                        .HasColumnType("uuid");
+
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("userId", "songId");
 
-                    b.HasIndex("songId");
+                    b.HasIndex("SongId");
 
                     b.ToTable("liked_songs", (string)null);
                 });
@@ -260,9 +266,7 @@ namespace Amplify_backend.Migrations
                 {
                     b.HasOne("Amplify_backend.Model.Songs", "song")
                         .WithMany()
-                        .HasForeignKey("songId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SongId");
 
                     b.HasOne("Amplify_backend.Model.Users", "user")
                         .WithMany("LikedSongs")

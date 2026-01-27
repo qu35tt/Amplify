@@ -1,178 +1,67 @@
 ﻿using Amplify_backend.Data;
-using Amplify_backend.Model;
-using Amplify_backend.Services;
-using Amplify_backend.Utils;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json.Linq;
+using Amplify_backend.Model;
+using System.Security.Claims;
 
 namespace Amplify_backend.Controllers
 {
     [ApiController]
     [Route("user")]
+    [Authorize]
     public class UserController: ControllerBase
     {
         private readonly AppDbContext db;
-        private readonly JwtService jwt;
-        
 
-        public UserController (AppDbContext context, JwtService jwt)
+        public UserController(AppDbContext context)
         {
-            this.jwt = jwt;
             db = context;
         }
 
-        [HttpPost("login")]
-        public async Task<ObjectResult> LoginUser([FromBody] User req)
+        [HttpGet("likes")]
+        public async Task<IActionResult> GetLikedSongs()
         {
+            var userId = User.FindFirst("name")?.Value ?? "";
+
             try
             {
-                User userReq = new User()
-                {
-                    email = req.email,
-                    password = req.password
-                };
+                var likedSongs = db.LikedSongs.Where(data => data.userId + "" == userId).ToList();
 
-                var user = await db.Users.FirstOrDefaultAsync(u => u.email == userReq.email);
+                if (likedSongs == null)
+                    return NotFound();
 
-                bool isPasswordValid = PasswordHasher.VerifyPassword(userReq.password, user?.password ?? "");
-
-                if (!isPasswordValid)
-                    return StatusCode(401, "Email or username is incorrect!");
-
-                var token = await jwt.GenerateToken(user!.id);
-
-                var response = new
-                {
-                    token = token,
-                    user = new User
-                    {
-                        id = user.id,
-                        email = user.email,
-                        display_name = user.display_name,
-                        AvatarUrl = user.AvatarUrl,
-                    }
-                };
-
-                return StatusCode(200, response);
+                return Ok(likedSongs);
             }
             catch
             {
-                return StatusCode(500, "Server error");
+                return StatusCode(500);
             }
-
         }
 
-        [HttpPost ("create")]
-        public async Task<ObjectResult> CreateUser([FromBody] User req)
+        [HttpPost("likes/{id}")]
+        public async Task<IActionResult> AddLikedSong()
         {
+            string songId = HttpContext.Request.RouteValues["id"]?.ToString() ?? "";
+            var userId = User.FindFirst("name")?.Value ?? "";
+
             try
             {
-                // Hash the password before storing it
-                var hashedPassword = PasswordHasher.HashPassword(req.password);
+                if (songId == string.Empty || userId == string.Empty)
+                    return BadRequest();
 
-                bool userExists = await db.Users.AnyAsync(u => u.email == req.email);
-
-                if (userExists)
-                    return StatusCode(400, "User already registered!");
-
-                var result = await db.Users.AddAsync(new User
-                {
-                    email = req.email,
-                    display_name = req.display_name,
-                    password = hashedPassword,
-                    AvatarUrl = req.AvatarUrl,
-                    isAdmin = false,
-                });
+                var likedSongs = await db.LikedSongs.AddAsync(new LikedSongs
+                    {
+                        songId = new Guid(songId),
+                        userId = new Guid(userId)
+                    });
 
                 await db.SaveChangesAsync();
 
-                if (!result.IsKeySet)
-                    return StatusCode(500, "User created unsuccesfully");
-
-                var user = result.Entity;
-
-                var token = await jwt.GenerateToken(user.id);
-
-                var response = new
-                {
-                    token = token,
-                    user = new User
-                    {
-                        id = user.id,
-                        email = user.email,
-                        display_name = user.display_name,
-                        AvatarUrl = user.AvatarUrl,
-                    }
-                };
-
-                return StatusCode(201, response);
+                return Ok("The song was saved to liked songs!");
             }
             catch
             {
-                return StatusCode(500, "An error occurred while creating the user.");
-            }
-        }
-
-        [Authorize]
-        [HttpPut("update/{id}")]
-        public async Task<ObjectResult> UpdateUserData([FromBody] UserUpdateData req)
-        {
-            try
-            {
-                string id = HttpContext.Request.RouteValues["id"]?.ToString() ?? "";
-
-                if (id == "")
-                    return StatusCode(500, "Id is not typed");
-
-                var user = await db.Users.FirstOrDefaultAsync(u => u.id + "" == id);
-
-                if (user == null)
-                    return StatusCode(404, "User was not found");
-
-                user.display_name = req.display_name ?? user.display_name;
-                user.AvatarUrl = req.AvatarUrl ?? user.AvatarUrl;
-                user.email = req.email ?? user.email;
-                user.updatedAt = DateTime.UtcNow;
-
-                if (!string.IsNullOrWhiteSpace(req.password))
-                    user.password = PasswordHasher.HashPassword(req.password);
-                
-
-                await db.SaveChangesAsync();
-
-                return StatusCode(200, "User Updated Succesfully");
-            }
-            catch
-            {
-                return StatusCode(500, "Server error");
-            }
-        }
-
-        [Authorize]
-        [HttpGet("{id}")]
-        public async Task<ObjectResult> GetUserData()
-        {
-            try
-            {
-                string id = HttpContext.Request.RouteValues["id"]?.ToString() ?? "";
-
-                if (id == "")
-                    return StatusCode(500, "Id is not typed");
-
-                var result = await db.Users.FirstOrDefaultAsync(u => u.id.ToString() == id);
-
-
-                if (result?.id == Guid.Empty)
-                    return StatusCode(404, "User not found");
-
-                return StatusCode(200, result);
-            }
-            catch
-            {
-                return StatusCode(500, "An error occured while finding a person");
+                return StatusCode(500);
             }
         }
     }
