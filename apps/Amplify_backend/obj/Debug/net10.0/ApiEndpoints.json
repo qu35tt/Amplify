@@ -111,6 +111,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Amplify_backend.Controllers.PlaylistController",
+    "Method": "GetPlaylists",
+    "RelativePath": "playlists",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Amplify_backend.Controllers.PlaylistController",
+    "Method": "CreatePlaylist",
+    "RelativePath": "playlists",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "Amplify_backend.DTOs.PlaylistDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Amplify_backend.Controllers.PlaylistController",
+    "Method": "GetPlaylistById",
+    "RelativePath": "playlists/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Amplify_backend.Controllers.PlaylistController",
+    "Method": "RemovePlaylistById",
+    "RelativePath": "playlists/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Amplify_backend.Controllers.PlaylistController",
+    "Method": "AddSongToPlaylist",
+    "RelativePath": "playlists/{id}/songs",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addedSongId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Amplify_backend.Controllers.SongsController",
     "Method": "GetSongs",
     "RelativePath": "songs",
@@ -183,6 +262,22 @@
     "Method": "AddLikedSong",
     "RelativePath": "user/likes/{id}",
     "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Amplify_backend.Controllers.UserController",
+    "Method": "RemoveLikedSong",
+    "RelativePath": "user/likes/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [

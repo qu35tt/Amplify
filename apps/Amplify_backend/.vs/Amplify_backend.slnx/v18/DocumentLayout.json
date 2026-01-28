@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\controllers\\playlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:controllers\\playlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\model\\playlistsongs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:model\\playlistsongs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\model\\songs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:model\\songs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\dtos\\playlistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:dtos\\playlistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\model\\playlists.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|solutionrelative:model\\playlists.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E28E49A9-2B37-DE3F-D4C8-798E13664F91}|Amplify_backend.csproj|d:\\.gitrepos\\amplify\\apps\\amplify_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -18,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,7 +46,72 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Playlists.cs",
+              "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Model\\Playlists.cs",
+              "RelativeDocumentMoniker": "Model\\Playlists.cs",
+              "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Model\\Playlists.cs",
+              "RelativeToolTip": "Model\\Playlists.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T08:38:32.659Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Songs.cs",
+              "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Model\\Songs.cs",
+              "RelativeDocumentMoniker": "Model\\Songs.cs",
+              "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Model\\Songs.cs",
+              "RelativeToolTip": "Model\\Songs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T08:38:28.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "PlaylistSongs.cs",
+              "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Model\\PlaylistSongs.cs",
+              "RelativeDocumentMoniker": "Model\\PlaylistSongs.cs",
+              "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Model\\PlaylistSongs.cs",
+              "RelativeToolTip": "Model\\PlaylistSongs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T08:37:54.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlaylistDTO.cs",
+              "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\DTOs\\PlaylistDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\PlaylistDTO.cs",
+              "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\DTOs\\PlaylistDTO.cs",
+              "RelativeToolTip": "DTOs\\PlaylistDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvw8AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T14:30:04.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PlaylistController.cs",
+              "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Controllers\\PlaylistController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PlaylistController.cs",
+              "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Controllers\\PlaylistController.cs",
+              "RelativeToolTip": "Controllers\\PlaylistController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAASwC8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T14:27:10.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -38,21 +119,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T12:38:54.512Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "D:\\.GitRepos\\Amplify\\apps\\Amplify_backend\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T10:12:49.288Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-27T12:38:54.512Z"
             }
           ]
         }

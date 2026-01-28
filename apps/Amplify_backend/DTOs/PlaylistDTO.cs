@@ -1,17 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Amplify_backend.Model
+namespace Amplify_backend.DTOs
 {
-    [Table("playlists")]
-    public class Playlists
+    public class PlaylistDTO
     {
-        [Key]
         public Guid id { get; set; }
 
         public Guid userId { get; set; }
 
-        [MaxLength(100), Required]
         public string name { get; set; } = string.Empty;
 
         public string? description { get; set; }
@@ -19,11 +16,5 @@ namespace Amplify_backend.Model
         public string? coverImageUrl { get; set; }
 
         public bool isPublic { get; set; } = true;
-
-        public DateTime createdAt { get; set; } = DateTime.UtcNow;
-
-        [ForeignKey("userId")]
-        public Users? user { get; set; }
-        public ICollection<PlaylistSongs> songs { get; set; } = new List<PlaylistSongs>();
     }
 }

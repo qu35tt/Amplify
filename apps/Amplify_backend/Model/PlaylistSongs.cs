@@ -15,11 +15,11 @@ namespace Amplify_backend.Model
 
         public DateTime addedAt { get; set; } = DateTime.UtcNow;
 
-        [ForeignKey("PlaylistId")]
-        public Playlists? playlist { get; set; }
+        [ForeignKey("playlistId")]
+        public virtual Playlists? playlist { get; set; }
 
-        [ForeignKey("SongId")]
-        public Songs? song { get; set; }
+        [ForeignKey("songId")]
+        public virtual Songs? song { get; set; }
     }
 }
 
