@@ -16,6 +16,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { toast } from "sonner";
+import { useNavigate } from "react-router"
+import { useAuthStore } from "@/stores/auth-store";
 
 export function LoginPage(){
     const loginSchema = z.object({
@@ -31,14 +33,19 @@ export function LoginPage(){
         resolver: zodResolver(loginSchema)
     });
 
+    const nav = useNavigate();
+
+    const authState = useAuthStore();
+
     const onSubmit = async (data: LoginFormValues) => {
         setIsLoading(true);
         try {
             const response = await axios.post(import.meta.env.VITE_API_URL+"auth/login", data);
-            console.log("Login success:", response.data);
             toast.success("Logged in succesfully!")
+            authState.setToken(response.data.accessToken);
+            nav("/home")
+
         } catch (error) {
-            console.error("Login error:", error);
             toast.error("Something went wrong!")
         } finally {
             setIsLoading(false);
