@@ -190,6 +190,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Amplify_backend.Controllers.PlaylistController",
+    "Method": "RemoveSongFromPlaylist",
+    "RelativePath": "playlists/{id}/songs",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "removedSongId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Amplify_backend.Controllers.SongsController",
     "Method": "GetSongs",
     "RelativePath": "songs",

@@ -200,3 +200,27 @@ apps/Amplify_backend/logs/
 
 # If you want to ignore user uploads in that specific folder
 apps/Amplify_backend/wwwroot/uploads/
+
+## ----------------------------------------------------
+## SPECIFIC RULES FOR: apps/Amplify_frontend (Vite+React)
+## ----------------------------------------------------
+
+# Dependencies
+apps/Amplify_frontend/node_modules/
+
+# Production Build Output (Standard Vite)
+apps/Amplify_frontend/dist/
+apps/Amplify_frontend/dist-ssr/
+
+# Environment Variables (Specific to frontend)
+apps/Amplify_frontend/.env.local
+apps/Amplify_frontend/.env.*.local
+
+# Editor directories specific to frontend context
+apps/Amplify_frontend/.vscode/
+
+# Testing Coverage
+apps/Amplify_frontend/coverage/
+
+# TypeScript Build Info
+apps/Amplify_frontend/*.tsbuildinfo
